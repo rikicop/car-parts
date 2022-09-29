@@ -2,13 +2,14 @@
 import useShop from "../../context/ShopContext";
 import {
     AddButton,
+    DeleteButton,
     Subtitle,
     TextContainer,
     Title,
     Wrapper
 } from "./PCardStyles";
 
-const ProductCard = ({ name, imageUrl, price }) => {
+const ProductCard = ({ id, name, imageUrl, price }) => {
     const { addToCart } = useShop()
     //const [isInCart, setIsInCart] = useState(false)
 
@@ -17,7 +18,7 @@ const ProductCard = ({ name, imageUrl, price }) => {
     }) */
 
     const handleClick = () => {
-        const product = { name, imageUrl, price }
+        const product = { id, name, imageUrl, price }
         addToCart(product);
     }
 
@@ -26,6 +27,9 @@ const ProductCard = ({ name, imageUrl, price }) => {
             <AddButton onClick={handleClick}>
                 <p>+</p>
             </AddButton>
+            <DeleteButton onClick={handleClick}>
+                <p>-</p>
+            </DeleteButton>
             <TextContainer>
                 <Title>{name}</Title>
                 <Subtitle>{price}.00$</Subtitle>

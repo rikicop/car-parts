@@ -7,6 +7,7 @@ const shopReducer = (state, action) => {
 
     switch (type) {
         case "ADD_TO_CART":
+
             console.log("ADD_TO_CART", payload)
             return {
                 ...state,

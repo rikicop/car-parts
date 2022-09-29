@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   font-family: "Roboto";
   margin: 40px;
-
   display: grid;
   row-gap: 20px;
   justify-content: center;
@@ -13,15 +12,16 @@ export const TitleWrapper = styled.div`
   * {
     margin: 0;
   }
-
+  align-items: center;
+  justify-content: center;
   display: grid;
   row-gap: 10px;
 
-  a {
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
+  p{
+    font-weight: 600;
+    font-size: larger;
   }
+
 `;
 
 export const LinksWrapper = styled.div`
@@ -31,10 +31,10 @@ export const LinksWrapper = styled.div`
 
   a {
     text-decoration: none;
-    color: #bb7250;
+    color: darkcyan;
 
     :hover {
-      color: #bb7250;
+      color: darkcyan;
       font-weight: bold;
       text-decoration: underline;
     }

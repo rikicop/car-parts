@@ -9,7 +9,7 @@ import { ProductsWrapper, Title } from "./ProductsStyles";
 const Products = () => {
     return (
         <>
-            <Title>Welcome to DC Clothing Shop</Title>
+            <Title>Welcome to Auto parts department</Title>
 
             <ProductsWrapper>
                 {shopData.map((data, index) => (

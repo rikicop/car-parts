@@ -11,13 +11,15 @@ function App() {
       <Router>
         <Wrapper>
           <TitleWrapper>
-            <h1>useReducer Hook Starter Project</h1>
+            <h1>Auto parts</h1>
+          </TitleWrapper>
+          <TitleWrapper>
             <p>
-              A <a href="designcode.io">Design+Code</a> tutorial
+              A Context + useReducer Example
             </p>
           </TitleWrapper>
           <LinksWrapper>
-            <Link to="/">Home</Link>
+            <Link to="/">Principal</Link>
             <Link to="/cart">Cart</Link>
           </LinksWrapper>
           <Routes>
