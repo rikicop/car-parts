@@ -26,6 +26,10 @@
           total: 0,
           products: [],  
         };
+
+        const shopReducer = (state, action) =>{}
+
+        export default shopReducer;
         ```
    
 5. Back into our ShopContext.js file, we will to import the initialState from the shopReducer.js:
@@ -35,6 +39,7 @@
    import { initialState } from './shopReducer';
 
    export const ShopContext = createContext(initialState);
+   
    ```
 
 6. We need to create a **reducer** to update the state of the context. This reducer will /
