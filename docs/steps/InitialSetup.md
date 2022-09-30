@@ -70,6 +70,9 @@ and will only update the part of the global state related to the action that is 
    ```
 
 7. We need to create a **provider** to wrap the components that will need to access the context.
+
+   7.1 And we need to create an action inside the provider: one for each action type we have in the reducer.
+
    
    ```js
    ...
