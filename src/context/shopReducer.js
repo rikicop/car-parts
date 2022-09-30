@@ -11,8 +11,7 @@ const shopReducer = (state, action) => {
             console.log("ADD_TO_CART", payload)
             return {
                 ...state,
-                products: payload.products
-                //Aceptamos los productos actualizados haciendo payload a productos.
+                products: payload.products// here we are updating the products array
             }
         case "REMOVE_FROM_CART":
             console.log("REMOVE_FROM_CART", payload)

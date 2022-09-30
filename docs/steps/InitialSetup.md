@@ -8,11 +8,11 @@
 2. Create a new file in the context directory named `ShopContext.js` and add the 
    following code:
 
-        ```js
-        import React, { createContext, useState } from 'react';
+    ```js
+    import React, { createContext, useState } from 'react';
 
-        export const CartContext = createContext();
-        ```
+    export const CartContext = createContext();
+    ```
 3. By convention, we name the context with the name beginning with capital letter
       of the context followed by `Context`. In this case, we are creating a context for the shopping cart, so we name it `ShopContext`.
 
@@ -21,14 +21,14 @@
 4. We need a **initial value** for the context, so we will create a new file in the context directory, /
    shopReducer.js and add the following code (Export the initial state because we'll need it in our ShopContext.js file:
 
-        ```js
-        export const initialState = {
-          total: 0,
-          products: [],  
-        };
-|
-        export default shopReducer;
-        ```
+    ```js
+    export const initialState = {
+        total: 0,
+        products: [],  
+    }
+
+    export default shopReducer;
+    ```
    
 5. Back into our ShopContext.js file, we will to import the initialState from the shopReducer.js:
 
@@ -58,7 +58,8 @@ and will only update the part of the global state related to the action that is 
             console.log("ADD_TO_CART", payload)
             return {
                 ...state,
-                products: payload.products // update the products array
+                products: payload.products // payload.products is the new array of products
+                // no matter what the previous state was
             }
         case "REMOVE_FROM_CART":
       ...
