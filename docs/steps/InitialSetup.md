@@ -26,9 +26,7 @@
           total: 0,
           products: [],  
         };
-
-        const shopReducer = (state, action) =>{}
-
+|
         export default shopReducer;
         ```
    
