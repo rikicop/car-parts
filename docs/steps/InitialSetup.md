@@ -71,7 +71,7 @@ and will only update the part of the global state related to the action that is 
 
 7. We need to create a **provider** to wrap the components that will need to access the context.
 
-   7.1 And we need to create an action inside the provider: one for each action type we have in the reducer.
+   7.1 And we need to create actions inside the provider: one for each action type we have in the reducer.
 
    
    ```js
@@ -86,16 +86,20 @@ and will only update the part of the global state related to the action that is 
     const [state, dispatch] = useReducer(shopReducer, initialState);
     
     const addToCart = (product) => {
+        const updateCart = [...state.products, product]; // add the product to the products array
         dispatch({
             type: "ADD_TO_CART",
             payload: {
-                products: [...state.products, product] // add the product to the products array
+                products: updateCart
             }
         })
     }
    ```
 
 8. Now that we have our function(s), we need to return something from the shopProvider. 
+
+   Don't forget that the provider requires a value prop, which is the state and functions that we want  
+   to be available to the components that are wrapped by the provider.
 
    ```js
     
