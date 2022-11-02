@@ -9,13 +9,21 @@ export const ShopProvider = ({ children }) => {
     const [state, dispatch] = useReducer(shopReducer, initialState)
 
     const uniqueIds = []; //We create an array to store the unique ids
+    // Create an array to store all the products
+
     const addToCart = (product) => {
 
+        // All the products no matter how many times they are repeated 
+        // const newCart = [...state.products, product]; //CODE
+        // for this to work, we need to add the product to the state
+        // payload: { products: newCart }
+
+        //Unique
         const updateCart = state.products.concat(product);
         const unique = updateCart.filter(element => {
-            const isDuplicate = uniqueIds.includes(element.id); //We check if the id is already in the array
+            const isDuplicate = uniqueIds.includes(element.id); //1. We check if the id is already in the array
 
-            if (!isDuplicate) {//If it is not, we add it to the array
+            if (!isDuplicate) {//2. If it is not, we add it to the array
                 uniqueIds.push(element.id);
 
                 return true;
@@ -27,7 +35,7 @@ export const ShopProvider = ({ children }) => {
         dispatch({
             type: "ADD_TO_CART",
             payload: {
-                products: unique
+                products: unique,
             }//Here payload is the unique array
         })
     }
