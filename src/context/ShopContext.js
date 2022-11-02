@@ -8,7 +8,7 @@ const ShopContext = createContext(initialState)
 export const ShopProvider = ({ children }) => {
     const [state, dispatch] = useReducer(shopReducer, initialState)
 
-    const uniqueIds = []; //We create an array to store the unique ids
+    //const uniqueIds = []; //We create an array to store the unique ids
     // Create an array to store all the products
 
     const addToCart = (product) => {
@@ -20,7 +20,11 @@ export const ShopProvider = ({ children }) => {
 
         //Unique
         const updateCart = state.products.concat(product);
-        const unique = updateCart.filter(element => {
+        let count = {}
+        updateCart.forEach((x) => {
+            count[x.id] = (count[x.id] || 0) + 1
+        })
+        /* const unique = updateCart.filter(element => {
             const isDuplicate = uniqueIds.includes(element.id); //1. We check if the id is already in the array
 
             if (!isDuplicate) {//2. If it is not, we add it to the array
@@ -30,12 +34,12 @@ export const ShopProvider = ({ children }) => {
             }
 
             return false;
-        });
+        }); */
         // In dispatch we pass the type and for the payload we pass the products
         dispatch({
             type: "ADD_TO_CART",
             payload: {
-                products: unique,
+                products: updateCart,
             }//Here payload is the unique array
         })
     }
