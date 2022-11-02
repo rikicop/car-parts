@@ -20,10 +20,6 @@ export const ShopProvider = ({ children }) => {
 
         //Unique
         const updateCart = state.products.concat(product);
-        let count = {}
-        updateCart.forEach((x) => {
-            count[x.id] = (count[x.id] || 0) + 1
-        })
         /* const unique = updateCart.filter(element => {
             const isDuplicate = uniqueIds.includes(element.id); //1. We check if the id is already in the array
 
