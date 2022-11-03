@@ -1,6 +1,6 @@
 import React from 'react'
 import ProductCard from '../ProductCard'
-import { Title } from './CartStyles'
+import { Title, ProductsWrapper } from './CartStyles'
 import useShop from '../../context/ShopContext'
 
 const Cart = () => {
@@ -19,14 +19,16 @@ const Cart = () => {
             count: count[name], amount: count[name] * products.find(product => product.name === name).price
         })
     }
-    console.log(unique)
+    console.log("Unique:", unique)
 
     return (
         <>
             <Title>Your cart total is 300.00$</Title>
-            {unique.map((product, index) => (
-                <ProductCard key={index} {...product} />
-            ))}
+            <ProductsWrapper>
+                {unique.map((product, index) => (
+                    <ProductCard key={index} {...product} />
+                ))}
+            </ProductsWrapper>
             <h5>Amounts</h5>
             <ul>
                 {unique.map((product, index) => (
@@ -39,3 +41,5 @@ const Cart = () => {
 }
 
 export default Cart
+
+

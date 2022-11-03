@@ -1,6 +1,9 @@
 export const initialState = {
     total: 0,
-    products: []
+    count: {},
+    products: [],
+    unique: []
+
 }
 const shopReducer = (state, action) => {
     const { type, payload } = action
@@ -25,6 +28,13 @@ const shopReducer = (state, action) => {
                 ...state,
                 products: payload.total //Lo que necesito es el total de precio
             }
+        case "UNIQUE_PRODUCTS":
+            console.log("UNIQUE_PRODUCTS", payload)
+            return {
+                ...state,
+                count: payload.count
+            }
+
         default:
             throw new Error(`No existe ${type} en el shopReducer`)
     }
