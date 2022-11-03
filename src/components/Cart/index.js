@@ -4,37 +4,18 @@ import { Title, ProductsWrapper } from './CartStyles'
 import useShop from '../../context/ShopContext'
 
 const Cart = () => {
-    const { products } = useShop()
-    let count = {}
-    products.forEach(product => {
-        count[product.name] = (count[product.name] || 0) + 1
-    })
-    console.log(count)
-    let unique = []
-
-    for (let name in count) {
-        unique.push({
-            name: name,
-            imageUrl: products.find(product => product.name === name).imageUrl,
-            count: count[name], amount: count[name] * products.find(product => product.name === name).price
-        })
-    }
+    const { unique, total } = useShop()
     console.log("Unique:", unique)
+
 
     return (
         <>
-            <Title>Your cart total is 300.00$</Title>
+            <Title>Your cart total is {total}$</Title>
             <ProductsWrapper>
-                {unique.map((product, index) => (
-                    <ProductCard key={index} {...product} />
+                {unique.map((unique, index) => (
+                    <ProductCard key={index} {...unique} />
                 ))}
             </ProductsWrapper>
-            <h5>Amounts</h5>
-            <ul>
-                {unique.map((product, index) => (
-                    <li key={index}>{product.name} x {product.count} = {product.amount}</li>
-                ))}
-            </ul>
         </>
     )
 

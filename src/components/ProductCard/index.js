@@ -9,12 +9,11 @@ import {
     Wrapper
 } from "./PCardStyles";
 
-const ProductCard = ({ id, name, imageUrl, price }) => {
+const ProductCard = ({ id, name, imageUrl, price, amount }) => {
     const { addToCart } = useShop()
     //const [isInCart, setIsInCart] = useState(false)
-
     /* useEffect(()=>{
-    
+
     }) */
 
     const handleClick = () => {
@@ -32,7 +31,12 @@ const ProductCard = ({ id, name, imageUrl, price }) => {
             </DeleteButton>
             <TextContainer>
                 <Title>{name}</Title>
-                <Subtitle>{price}.00$</Subtitle>
+                {
+                    price && <Subtitle>{price}.00$</Subtitle>
+                }
+                {
+                    amount && <Subtitle>{amount}.00$</Subtitle>
+                }
             </TextContainer>
         </Wrapper>
     );

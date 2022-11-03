@@ -22,17 +22,17 @@ const shopReducer = (state, action) => {
                 ...state,
                 products: payload.products
             }
-        case "UPDATE_AMOUNT":
-            console.log("UPDATE_AMOUNT", payload)
-            return {
-                ...state,
-                products: payload.total //Lo que necesito es el total de precio
-            }
         case "UNIQUE_PRODUCTS":
             console.log("UNIQUE_PRODUCTS", payload)
             return {
                 ...state,
-                count: payload.count
+                unique: payload.unique
+            }
+        case "UPDATE_AMOUNT":
+            console.log("UPDATE_AMOUNT", payload)
+            return {
+                ...state,
+                total: payload.total
             }
 
         default:
