@@ -5,6 +5,7 @@ const ShopContext = createContext(initialState)
 
 export const ShopProvider = ({ children }) => {
     const [state, dispatch] = useReducer(shopReducer, initialState)
+
     const addToCart = (product) => {
         const updateCart = state.products.concat(product);
         uniqueProducts(updateCart);
@@ -22,7 +23,7 @@ export const ShopProvider = ({ children }) => {
         products.forEach(product => {
             count[product.name] = (count[product.name] || 0) + 1
         })
-        console.log(count)
+        //console.log(count) // To check the count of each product
         let unique = []
         for (let name in count) {
             unique.push({
@@ -31,6 +32,7 @@ export const ShopProvider = ({ children }) => {
                 count: count[name], amount: count[name] * products.find(product => product.name === name).price
             })
         }
+        updateAmount(unique)
         dispatch({
             type: "UNIQUE_PRODUCTS",
             payload: {
@@ -40,9 +42,23 @@ export const ShopProvider = ({ children }) => {
         })
     }
 
+    const updateAmount = (amount) => {
+        let total = 0
+        amount.forEach(product => {
+            total += product.amount
+        })
+        dispatch({
+            type: "UPDATE_AMOUNT",
+            payload: {
+                total
+            }
+        })
+    }
+
 
 
     const value = {
+        total: state.total,
         products: state.products,
         addToCart,
         count: state.count,

@@ -22,8 +22,8 @@ const shopReducer = (state, action) => {
                 ...state,
                 products: payload.products
             }
-        case "UPDATE_PRICE":
-            console.log("UPDATE_PRICE", payload)
+        case "UPDATE_AMOUNT":
+            console.log("UPDATE_AMOUNT", payload)
             return {
                 ...state,
                 products: payload.total //Lo que necesito es el total de precio
