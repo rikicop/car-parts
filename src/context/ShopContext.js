@@ -6,6 +6,7 @@ const ShopContext = createContext(initialState)
 export const ShopProvider = ({ children }) => {
     const [state, dispatch] = useReducer(shopReducer, initialState)
 
+    // ADD TO CART
     const addToCart = (product) => {
         const updateCart = state.products.concat(product);
         uniqueProducts(updateCart);
@@ -13,6 +14,23 @@ export const ShopProvider = ({ children }) => {
             type: "ADD_TO_CART",
             payload: {
                 products: updateCart,
+            }
+        })
+    }
+    // SUBSTRACT FROM CART
+    const substractFromCart = (name) => {
+        //get unique products state
+        const unique = state.unique
+        const index = unique.findIndex(item => item.name === name)
+        if (index > -1 && unique[index].count >= 1) {
+            unique[index].count -= 1
+            unique[index].amount = unique[index].price * unique[index].count;
+        }
+        updateAmount(unique)
+        dispatch({
+            type: "SUBSTRACT_FROM_CART",
+            payload: {
+                unique: unique
             }
         })
     }
@@ -41,7 +59,7 @@ export const ShopProvider = ({ children }) => {
             }
         })
     }
-
+    // REMOVE COMPLETE PRODUCT FROM CART
     const removeFromCart = (product) => {
         const updateCart = state.products.filter(item => item.name !== product.name)
         uniqueProducts(updateCart)
@@ -49,23 +67,6 @@ export const ShopProvider = ({ children }) => {
             type: "REMOVE_FROM_CART",
             payload: {
                 products: updateCart
-            }
-        })
-    }
-
-    const substractFromCart = (name) => {
-        //get unique products state
-        const unique = state.unique
-        const index = unique.findIndex(item => item.name === name)
-        if (index > -1 && unique[index].count >= 1) {
-            unique[index].count -= 1
-            unique[index].amount = unique[index].price * unique[index].count;
-        }
-        updateAmount(unique)
-        dispatch({
-            type: "SUBSTRACT_FROM_CART",
-            payload: {
-                unique: unique
             }
         })
     }
