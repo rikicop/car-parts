@@ -52,18 +52,19 @@ export const ShopProvider = ({ children }) => {
         })
     }
 
-    const substractFromCart = (product) => {
+    const substractFromCart = (name) => {
         //get unique products state
         const unique = state.unique
+        const index = unique.findIndex(item => item.name === name)
+        if (index > -1 && unique[index].count >= 1) {
+            unique[index].count -= 1
+        }
         dispatch({
             type: "SUBSTRACT_FROM_CART",
             payload: {
-                products: unique
+                unique: unique
             }
         })
-
-
-
     }
 
     const updateAmount = (amount) => {

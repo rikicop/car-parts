@@ -1,3 +1,13 @@
 ## Tracking 2/11/2022, 1::35 AM
 
 Could I create the function used to get Uniques products in the cart in ShopContext as I did with ADD_TO_CART and  UPDATE_PRICE?
+
+R= Yes I did
+
+## Tracking 4/11/2022, 1::35 AM
+
+I made posssible to delete the count of the product in the cart
+
+## Tracking 5/11/2022, 1::35 AM
+
+Now I have to update the amount of the product in the cart

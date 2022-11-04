@@ -12,7 +12,7 @@ import {
 } from "./PCardStyles";
 
 const ProductCard = ({ id, name, imageUrl, price, amount }) => {
-    const { addToCart, removeFromCart } = useShop()
+    const { addToCart, removeFromCart, substractFromCart } = useShop()
     //const [isInCart, setIsInCart] = useState(false)
     /* useEffect(()=>{
 
@@ -24,7 +24,8 @@ const ProductCard = ({ id, name, imageUrl, price, amount }) => {
     }
     const handleDecrease = () => {
         const product = { id, name, imageUrl, price, amount }
-        removeFromCart(product);
+        console.log("Name de Product: ", product.name)
+        substractFromCart(product.name);
     }
     const handleRemove = () => {
         const product = { id, name, imageUrl, price, amount }

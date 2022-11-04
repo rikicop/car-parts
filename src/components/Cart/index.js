@@ -5,9 +5,6 @@ import useShop from '../../context/ShopContext'
 
 const Cart = () => {
     const { unique, total } = useShop()
-    console.log("Unique:", unique)
-
-
     return (
         <>
             <Title>Your cart total is {total}$</Title>
