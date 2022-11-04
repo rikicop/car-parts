@@ -6,7 +6,7 @@ R= Yes I did
 
 ## Tracking 4/11/2022, 1::35 AM
 
-I made posssible to delete the count of the product in the cart
+I made posssible to decrease the count of the product in the cart
 
 ## Tracking 5/11/2022, 1::35 AM
 
