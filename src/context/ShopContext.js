@@ -17,7 +17,6 @@ export const ShopProvider = ({ children }) => {
         })
     }
 
-
     const uniqueProducts = (products) => {
         let count = {}
         products.forEach(product => {
@@ -42,6 +41,31 @@ export const ShopProvider = ({ children }) => {
         })
     }
 
+    const removeFromCart = (product) => {
+        const updateCart = state.products.filter(item => item.name !== product.name)
+        uniqueProducts(updateCart)
+        dispatch({
+            type: "REMOVE_FROM_CART",
+            payload: {
+                products: updateCart
+            }
+        })
+    }
+
+    const substractFromCart = (product) => {
+        //get unique products state
+        const unique = state.unique
+        dispatch({
+            type: "SUBSTRACT_FROM_CART",
+            payload: {
+                products: unique
+            }
+        })
+
+
+
+    }
+
     const updateAmount = (amount) => {
         let total = 0
         amount.forEach(product => {
@@ -61,6 +85,8 @@ export const ShopProvider = ({ children }) => {
         total: state.total,
         products: state.products,
         addToCart,
+        removeFromCart,
+        substractFromCart,
         count: state.count,
         unique: state.unique,
     }

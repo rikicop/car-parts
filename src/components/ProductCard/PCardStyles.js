@@ -42,8 +42,8 @@ export const AddButton = styled.div`
   }
 `;
 
-export const DeleteButton = styled.div`
-  position: absolute;
+export const DecreaseButton = styled.div`
+position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +51,7 @@ export const DeleteButton = styled.div`
   right: 20px;
   width: 20px;
   height: 20px;
-  background: darkred;
+  background: red;
   opacity: 0.75;
   border-radius: 20%;
   padding: 5px;
@@ -68,6 +68,34 @@ export const DeleteButton = styled.div`
     color: white;
   }
 `;
+
+export const RemoveButton = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 100px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  background: orangered;
+  opacity: 0.75;
+  border-radius: 20%;
+  padding: 5px;
+  cursor: pointer;
+
+  :hover {
+    transform: scale(1.2);
+    transition: 1s;
+  }
+
+  p {
+    font-size: 20px;
+    margin: 0;
+    color: white;
+  }
+`;
+
 
 export const TextContainer = styled.div`
   display: grid;

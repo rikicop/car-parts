@@ -1,8 +1,10 @@
 //import { useEffect, useState } from "react";
 import useShop from "../../context/ShopContext";
+import { FaTrash } from "react-icons/fa";
 import {
     AddButton,
-    DeleteButton,
+    RemoveButton,
+    DecreaseButton,
     Subtitle,
     TextContainer,
     Title,
@@ -10,25 +12,39 @@ import {
 } from "./PCardStyles";
 
 const ProductCard = ({ id, name, imageUrl, price, amount }) => {
-    const { addToCart } = useShop()
+    const { addToCart, removeFromCart } = useShop()
     //const [isInCart, setIsInCart] = useState(false)
     /* useEffect(()=>{
 
     }) */
 
-    const handleClick = () => {
-        const product = { id, name, imageUrl, price }
+    const handleAdd = () => {
+        const product = { id, name, imageUrl, price, amount }
         addToCart(product);
     }
+    const handleDecrease = () => {
+        const product = { id, name, imageUrl, price, amount }
+        removeFromCart(product);
+    }
+    const handleRemove = () => {
+        const product = { id, name, imageUrl, price, amount }
+        removeFromCart(product);
+    }
+
+
+
 
     return (
         <Wrapper background={imageUrl}>
-            <AddButton onClick={handleClick}>
+            <AddButton onClick={handleAdd}>
                 <p>+</p>
             </AddButton>
-            <DeleteButton onClick={handleClick}>
+            <DecreaseButton onClick={handleDecrease}>
                 <p>-</p>
-            </DeleteButton>
+            </DecreaseButton>
+            <RemoveButton onClick={handleRemove}>
+                <FaTrash />
+            </RemoveButton>
             <TextContainer>
                 <Title>{name}</Title>
                 {

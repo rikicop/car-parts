@@ -3,14 +3,12 @@ export const initialState = {
     count: {},
     products: [],
     unique: []
-
 }
 const shopReducer = (state, action) => {
     const { type, payload } = action
 
     switch (type) {
         case "ADD_TO_CART":
-
             console.log("ADD_TO_CART", payload)
             return {
                 ...state,
@@ -21,6 +19,12 @@ const shopReducer = (state, action) => {
             return {
                 ...state,
                 products: payload.products
+            }
+        case "SUBSTRACT_FROM_CART":
+            console.log("SUBSTRACT_FROM_CART", payload)
+            return {
+                ...state,
+                products: payload.unique
             }
         case "UNIQUE_PRODUCTS":
             console.log("UNIQUE_PRODUCTS", payload)
