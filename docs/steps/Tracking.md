@@ -12,6 +12,6 @@ I made posssible to decrease the count of the product in the cart
 
 Now I have to update the amount of the product in the cart
 
-## Error
+## Error- Problema con el amount al restar 
 
 Cuando voy a carrito y resto para luego sumar, me cambia los valores de los productos restantes, esto solo pasa la primera vez que lo hago(Por producto), luego ya no me lo hace normal
