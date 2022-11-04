@@ -28,6 +28,7 @@ export const ShopProvider = ({ children }) => {
             unique.push({
                 name: name,
                 imageUrl: products.find(product => product.name === name).imageUrl,
+                price: products.find(product => product.name === name).price,
                 count: count[name], amount: count[name] * products.find(product => product.name === name).price
             })
         }
@@ -58,7 +59,9 @@ export const ShopProvider = ({ children }) => {
         const index = unique.findIndex(item => item.name === name)
         if (index > -1 && unique[index].count >= 1) {
             unique[index].count -= 1
+            unique[index].amount = unique[index].price * unique[index].count;
         }
+        updateAmount(unique)
         dispatch({
             type: "SUBSTRACT_FROM_CART",
             payload: {
