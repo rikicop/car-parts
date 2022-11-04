@@ -24,7 +24,7 @@ const shopReducer = (state, action) => {
             console.log("SUBSTRACT_FROM_CART", payload)
             return {
                 ...state,
-                products: payload.unique
+                products: payload.products
             }
         case "UNIQUE_PRODUCTS":
             console.log("UNIQUE_PRODUCTS", payload)

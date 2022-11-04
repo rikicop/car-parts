@@ -18,21 +18,37 @@ export const ShopProvider = ({ children }) => {
         })
     }
     // SUBSTRACT FROM CART
-    const substractFromCart = (name) => {
-        //get unique products state
-        const unique = state.unique
-        const index = unique.findIndex(item => item.name === name)
-        if (index > -1 && unique[index].count >= 1) {
-            unique[index].count -= 1
-            unique[index].amount = unique[index].price * unique[index].count;
+    const substractFromCart = (id) => {
+        //remove just one product by id
+        const index = state.products.findIndex((product) => product.id === id);
+        if (index > -1) {
+            state.products.splice(index, 1);
         }
-        updateAmount(unique)
+        uniqueProducts(state.products);
+        console.log("ID : ", id)
+        console.log("Resultado de filtrar por ID: ", state.products);
+
         dispatch({
             type: "SUBSTRACT_FROM_CART",
             payload: {
-                unique: unique
+                products: state.products,
             }
         })
+        //get unique products state
+        /*   const unique = state.unique
+          const index = unique.findIndex(item => item.name === name)
+          if (index > -1 && unique[index].count >= 1) {
+              unique[index].count -= 1
+              unique[index].amount = unique[index].price * unique[index].count;
+          }
+          updateAmount(unique) */
+
+        /*   dispatch({
+              type: "SUBSTRACT_FROM_CART",
+              payload: {
+                  products: updateCart,
+              }
+          }) */
     }
 
     const uniqueProducts = (products) => {
@@ -45,6 +61,7 @@ export const ShopProvider = ({ children }) => {
         for (let name in count) {
             unique.push({
                 name: name,
+                id: products.find(product => product.name === name).id,
                 imageUrl: products.find(product => product.name === name).imageUrl,
                 price: products.find(product => product.name === name).price,
                 count: count[name], amount: count[name] * products.find(product => product.name === name).price

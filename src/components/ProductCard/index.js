@@ -24,8 +24,8 @@ const ProductCard = ({ id, name, imageUrl, price, amount }) => {
     }
     const handleDecrease = () => {
         const product = { id, name, imageUrl, price, amount }
-        console.log("Name de Product: ", product.name)
-        substractFromCart(product.name);
+        console.log("ID... de Product: ", product.id)
+        substractFromCart(product.id);
     }
     const handleRemove = () => {
         const product = { id, name, imageUrl, price, amount }
@@ -47,7 +47,7 @@ const ProductCard = ({ id, name, imageUrl, price, amount }) => {
                 <FaTrash />
             </RemoveButton>
             <TextContainer>
-                <Title>{name}</Title>
+                <Title>{name} - {id} </Title>
                 {
                     price && <Subtitle>{price}.00$</Subtitle>
                 }
