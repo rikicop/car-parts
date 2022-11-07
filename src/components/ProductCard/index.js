@@ -11,7 +11,7 @@ import {
     Wrapper
 } from "./PCardStyles";
 
-const ProductCard = ({ id, name, imageUrl, price, amount }) => {
+const ProductCard = ({ id, name, imageUrl, price, amount, count }) => {
     const { addToCart, removeFromCart, substractFromCart } = useShop()
     //const [isInCart, setIsInCart] = useState(false)
     /* useEffect(()=>{
@@ -19,16 +19,18 @@ const ProductCard = ({ id, name, imageUrl, price, amount }) => {
     }) */
 
     const handleAdd = () => {
-        const product = { id, name, imageUrl, price, amount }
+        // This is call destructuring of an object
+        // amount and count are not needed here because they allready exist in the context
+        const product = { id, name, imageUrl, price }
         addToCart(product);
     }
     const handleDecrease = () => {
-        const product = { id, name, imageUrl, price, amount }
+        const product = { id, name, imageUrl, price }
         console.log("ID... de Product: ", product.id)
         substractFromCart(product.id);
     }
     const handleRemove = () => {
-        const product = { id, name, imageUrl, price, amount }
+        const product = { id, name, imageUrl, price }
         removeFromCart(product);
     }
 
@@ -47,7 +49,7 @@ const ProductCard = ({ id, name, imageUrl, price, amount }) => {
                 <FaTrash />
             </RemoveButton>
             <TextContainer>
-                <Title>{name} - {id} </Title>
+                <Title>{count} - {name} - Id: {id} </Title>
                 {
                     price && <Subtitle>{price}.00$</Subtitle>
                 }
