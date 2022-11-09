@@ -38,6 +38,14 @@ const shopReducer = (state, action) => {
                 ...state,
                 total: payload.total
             }
+        case "CLEAR_CART":
+            console.log("CLEAR_CART", payload)
+            return {
+                ...state,
+                unique: payload.unique,
+                total: payload.total,
+                products: payload.products
+            }
 
         default:
             throw new Error(`No existe ${type} en el shopReducer`)

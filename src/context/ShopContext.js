@@ -34,21 +34,6 @@ export const ShopProvider = ({ children }) => {
                 products: state.products,
             }
         })
-        //get unique products state
-        /*   const unique = state.unique
-          const index = unique.findIndex(item => item.name === name)
-          if (index > -1 && unique[index].count >= 1) {
-              unique[index].count -= 1
-              unique[index].amount = unique[index].price * unique[index].count;
-          }
-          updateAmount(unique) */
-
-        /*   dispatch({
-              type: "SUBSTRACT_FROM_CART",
-              payload: {
-                  products: updateCart,
-              }
-          }) */
     }
 
     const uniqueProducts = (products) => {
@@ -101,7 +86,16 @@ export const ShopProvider = ({ children }) => {
         })
     }
 
-
+    const clearCart = () => {
+        dispatch({
+            type: "CLEAR_CART",
+            payload: {
+                unique: [],
+                total: 0,
+                products: []
+            }
+        })
+    }
 
     const value = {
         total: state.total,
@@ -109,6 +103,7 @@ export const ShopProvider = ({ children }) => {
         addToCart,
         removeFromCart,
         substractFromCart,
+        clearCart,
         count: state.count,
         unique: state.unique,
     }
