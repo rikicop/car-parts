@@ -33,10 +33,6 @@ const ProductCard = ({ id, name, imageUrl, price, amount, count }) => {
         const product = { id, name, imageUrl, price }
         removeFromCart(product);
     }
-
-
-
-
     return (
         <Wrapper background={imageUrl}>
             <AddButton onClick={handleAdd}>
