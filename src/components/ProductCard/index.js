@@ -49,7 +49,7 @@ const ProductCard = ({ id, name, imageUrl, price, amount, count }) => {
                 <FaTrash />
             </RemoveButton>
             <TextContainer>
-                <Title>{count} {count && <span>-</span>} {name} - Id: {id} </Title>
+                <Title>{count} {count && <span>N°</span>} {name} - Id: {id} </Title>
                 {
                     price && <Subtitle>{price}.00$</Subtitle>
                 }
