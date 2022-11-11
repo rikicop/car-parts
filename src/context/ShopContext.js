@@ -74,14 +74,17 @@ export const ShopProvider = ({ children }) => {
     }
 
     const updateAmount = (amount) => {
+        let tcount = 0
         let total = 0
         amount.forEach(product => {
             total += product.amount
+            tcount += product.count
         })
         dispatch({
             type: "UPDATE_AMOUNT",
             payload: {
-                total
+                total,
+                tcount
             }
         })
     }
@@ -106,6 +109,7 @@ export const ShopProvider = ({ children }) => {
         clearCart,
         count: state.count,
         unique: state.unique,
+        tcount: state.tcount
     }
 
     return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>

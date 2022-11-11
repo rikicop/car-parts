@@ -36,7 +36,8 @@ const shopReducer = (state, action) => {
             console.log("UPDATE_AMOUNT", payload)
             return {
                 ...state,
-                total: payload.total
+                total: payload.total,
+                tcount: payload.tcount
             }
         case "CLEAR_CART":
             console.log("CLEAR_CART", payload)
@@ -44,7 +45,8 @@ const shopReducer = (state, action) => {
                 ...state,
                 unique: payload.unique,
                 total: payload.total,
-                products: payload.products
+                products: payload.products,
+                tcount: payload.tcount
             }
 
         default:

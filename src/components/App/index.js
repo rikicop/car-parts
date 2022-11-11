@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Products from "../Products";
 import Cart from "../Cart"
 import { ShopProvider } from "../../context/ShopContext";
+import Nav from "../Navbar";
 
 
 function App() {
   return (
     <ShopProvider>
       <Router>
+        <Nav />
         <Wrapper>
           <TitleWrapper>
             <h1>Auto parts</h1>

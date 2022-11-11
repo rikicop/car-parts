@@ -5,12 +5,13 @@ import useShop from '../../context/ShopContext'
 import styled from 'styled-components'
 
 const Cart = () => {
-    const { unique, total, clearCart, products } = useShop()
+    const { unique, total, clearCart, products, tcount } = useShop()
     useEffect(() => {
         console.log("Unique: ", unique)
         console.log("Total: ", total)
         console.log("Products: ", products)
-    }, [unique, total, products])
+        console.log("Count: ", tcount)
+    }, [unique, total, products, tcount])
 
     return (
         <>
